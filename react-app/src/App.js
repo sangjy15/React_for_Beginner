@@ -7,6 +7,25 @@ function App() {
     const [time, setTime] = useState(600);
     const [min, setMin] = useState(0);
     const [sec, setSec] = useState(0);
+    const [minutes, setMinutes] = useState(2);
+    const [seconds, setSeconds] = useState(0);
+
+    useEffect(() => {
+        const countdown = setInterval(() => {
+          if (parseInt(seconds) > 0) {
+            setSeconds(parseInt(seconds) - 1);
+          }
+          if (parseInt(seconds) === 0) {
+            if (parseInt(minutes) === 0) {
+                clearInterval(countdown);
+            } else {
+              setMinutes(parseInt(minutes) - 1);
+              setSeconds(59);
+            }
+          }
+        }, 1000);
+        return () => clearInterval(countdown);
+      }, [minutes, seconds]);
     const setTimer = () => {
         setMin(parseInt(time/60));
             setSec(time%60);
@@ -16,16 +35,6 @@ function App() {
             if (time < 0) {
                 clearInterval();
             }
-        // setInterval(function() {
-        //     setMin(parseInt(time/60));
-        //     setSec(time%60);
-        //     console.log(min);    
-        //     console.log(sec);
-        //     setTime((prev) => prev - 1); 
-        //     if (time < 0) {
-        //         clearInterval();
-        //     }
-        // }, 1000);
     }
     return ( 
         <div>
@@ -35,6 +44,9 @@ function App() {
             {/* <h1>{counter}</h1>
             <button onClick={onClick}>click me</button> */}
             <button onClick={setTimer}>Timer</button>
+            <div>
+                {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+            </div>
         </div>
     );
 }
