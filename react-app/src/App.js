@@ -8,6 +8,11 @@ function App() {
     useEffect(() => {
       console.log("CALL THE API..");
     }, []);
+    useEffect(() => {
+      if (keyword !== "" && keyword.length >= 5) {
+        console.log("SEARCH KEYWORD", keyword);
+      }
+    }, [keyword]);
     return ( 
         <div>
           <input value={keyword} onChange={onChange} type="text" placeholder="Search here..."/>
