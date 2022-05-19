@@ -14,6 +14,9 @@ function App() {
     return <div>
       <h1>The Coins!</h1>
       {loading? <strong>Loading...</strong> : null}
+      <ul>
+        {coins.map((coin) => <li>{coin.name}</li>)}
+      </ul>
     </div>;
 }
 
