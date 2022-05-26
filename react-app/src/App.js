@@ -8,8 +8,8 @@ import Detail from "./routes/Detail";
 function App() {
     return <Router>
         <Switch>
-            <Route>
-                <Detail path ="/movie" />
+            <Route path ="/movie">
+                <Detail />
             </Route>
             <Route path="/">
                 <Home />
