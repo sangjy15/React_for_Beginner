@@ -5,10 +5,14 @@ import {
 } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
+import Hello from "./routes/Hello";
 function App() {
     return <Router>
         <Switch>
-            <Route path ="/movie">
+        <Route path ="/hello">
+                <h1>hello</h1>
+            </Route>
+            <Route path ="/movie/:id">
                 <Detail />
             </Route>
             <Route path="/">
