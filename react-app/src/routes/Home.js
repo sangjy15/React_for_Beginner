@@ -24,6 +24,7 @@ function Home(){
                 key={movie.id}
                 id={movie.id}
                 coverImage={movie.medium_cover_image} 
+                year={movie.year}
                 title={movie.title} 
                 summary={movie.summary} 
                 genres={movie.genres}/>
